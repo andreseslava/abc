@@ -11,11 +11,6 @@ def events(request):
     return render(request, 'events/event_list.html', {'events': events})
 
 
-def uglyEventsForm(request):
-    form = UglyEventForm()
-    return render(request, 'events/ugly_event_form.html', {'form': form})
-
-
 def eventsForm(request):
     if request.method == 'POST':
 

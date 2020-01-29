@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!--    {% load static %}-->
+    {% load static %}
     <title>ABC</title>
-
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -18,23 +17,20 @@
     <link rel="stylesheet" type="text/css" href="{% static 'home/css/landingStyle.css'%}">
 </head>
 <body>
+
 <div class="container">
     <div class="d-flex justify-content-center h-100">
         <div class="card">
             <div class="card-header">
-                <h3>Ingresa</h3>
-                <div class="d-flex justify-content-end social_icon">
-                    <span><image src="{% static 'events/logoABC.png'%}" style="width:150px;height:100px"></image></span>
-                </div>
+                <h3>Registrate</h3>
             </div>
-
             <div class="card-body">
-                <form action="" method="post">
+                <form action="userForm" method="post">
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
-                        {{ form.user }}
+                        {{ form.userName }}
                     </div>
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
@@ -42,21 +38,21 @@
                         </div>
                         {{ form.password }}
                     </div>
-                    <div class="row align-items-center remember">
-                        <input type="checkbox">Recuerdame
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        {{ form.confirmPassword }}
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Entrar" class="btn float-right login_btn">
+                        <input type="submit" value="Registrar" class="btn float-right login_btn">
                     </div>
                 </form>
-            </div>
-            <div class="card-footer">
-                <div class="d-flex justify-content-center links">
-                    ¿No tienes una cuenta?<a href="#">Registrate aquí</a>
-                </div>
             </div>
         </div>
     </div>
 </div>
+
 </body>
 </html>
+
