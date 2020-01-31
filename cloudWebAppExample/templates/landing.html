@@ -29,13 +29,16 @@
             </div>
 
             <div class="card-body">
+                {{ form.non_field_errors }}
                 <form action="" method="post">
+                    {{ form.user.errors }}
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
                         {{ form.user }}
                     </div>
+                    {{ form.password.errors }}
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-key"></i></span>
@@ -52,7 +55,7 @@
             </div>
             <div class="card-footer">
                 <div class="d-flex justify-content-center links">
-                    ¿No tienes una cuenta?<a href="#">Registrate aquí</a>
+                    ¿No tienes una cuenta?<a   href="/register">Registrate aquí</a>
                 </div>
             </div>
         </div>

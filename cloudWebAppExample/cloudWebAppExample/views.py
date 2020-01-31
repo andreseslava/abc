@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.contrib import auth
 
+from django.contrib.auth.models import User
 from .forms import LoginForm, CreateUserForm
 
 
@@ -26,14 +27,18 @@ def landing(request):
 
 def createUser(request):
     if request.method == 'POST':
-        form = LoginForm(request.POST)
+        form = CreateUserForm(request.POST)
         if form.is_valid():
-            user = form.cleaned_data['user']
+            user = form.cleaned_data['userName']
             passw = form.cleaned_data['password']
-            confirm = form.cleanet_data['confirmPasword']
-            print("*******" + confirm)
+            confirm = form.cleaned_data['confirmPassword']
+            print("*******" + user)
+            if passw == confirm:
+                userCheck = User.objects.create_user(user, user, passw)
+                return HttpResponseRedirect("/")
+            #TODO add error to GUI
 
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect('/register')
         else:
             return HttpResponseRedirect("/createuser")
     else:

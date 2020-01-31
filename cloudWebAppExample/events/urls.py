@@ -3,5 +3,6 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.events),
-    url(r'^eventsForm$', views.eventsForm),
+    url(r'^eventsform$', views.eventsForm),
+    url(r'^delete', views.delete),
 ]

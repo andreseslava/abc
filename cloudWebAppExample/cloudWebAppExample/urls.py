@@ -23,6 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^events/', include('events.urls')),
     url(r'^$', views.landing),
-    url(r'^createuser$', views.createUser),
+    url(r'^register$', views.createUser),
 
 ]
