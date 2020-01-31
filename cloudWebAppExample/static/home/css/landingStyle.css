@@ -13,6 +13,13 @@ height: 100%;
 align-content: center;
 }
 
+.errorlist{
+color: red;
+}
+
+.error input, .error select {
+border: 2px red solid;
+}
 .card{
 height: 370px;
 margin-top: auto;

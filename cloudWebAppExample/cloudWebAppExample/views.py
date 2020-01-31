@@ -9,6 +9,7 @@ from .forms import LoginForm, CreateUserForm
 def landing(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
+        print("I am here")
         if form.is_valid():
             user = form.cleaned_data['user']
             passw = form.cleaned_data['password']
@@ -19,7 +20,7 @@ def landing(request):
                 auth.login(request, authenticatedUser)
                 return HttpResponseRedirect('/events/')
             else:
-                return HttpResponseRedirect("account/invalid")
+                return HttpResponseRedirect("/")
     else:
         form = LoginForm()
     return render(request, 'landing.html', {'form': form})
@@ -32,15 +33,14 @@ def createUser(request):
             user = form.cleaned_data['userName']
             passw = form.cleaned_data['password']
             confirm = form.cleaned_data['confirmPassword']
-            print("*******" + user)
             if passw == confirm:
                 userCheck = User.objects.create_user(user, user, passw)
                 return HttpResponseRedirect("/")
-            #TODO add error to GUI
+            # TODO add error to GUI
 
             return HttpResponseRedirect('/register')
         else:
-            return HttpResponseRedirect("/createuser")
+            return HttpResponseRedirect("/register")
     else:
         form = CreateUserForm()
     return render(request, 'createUserForm.html', {'form': form})

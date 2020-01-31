@@ -1,11 +1,5 @@
-import datetime
-
 from django.conf import settings
 from django.db import models
-
-
-# Create your models here.
-from django.forms import ModelForm
 
 
 class Event(models.Model):
@@ -21,9 +15,3 @@ class Event(models.Model):
 
     def __str__(self):
         return "Event Data is Here"
-
-
-class UglyEventForm(ModelForm):
-    class Meta:
-        model = Event
-        fields = ['name']
